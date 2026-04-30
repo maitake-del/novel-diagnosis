@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Script from "next/script";
 
 export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,14 +18,28 @@ export default function HomePage() {
   }, []);
 
   return (
+ <>
+    <Script
+      id="website-jsonld"
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "物語コンパス",
+          alternateName: ["Monogatari Compass", "Novel Compass"],
+          url: "https://novel-diagnosis.vercel.app/",
+        }),
+      }}
+    />
+
     <main
       style={{
         minHeight: "100vh",
         background: "linear-gradient(to bottom, #fef3c7, #ffedd5)",
         color: "#111827",
         padding: isMobile ? "20px 12px" : "40px 24px",
-      }}
-    >
+      }}>
       <section
         style={{
           maxWidth: "1100px",
@@ -50,7 +65,7 @@ export default function HomePage() {
           AIがあなたに合う小説を診断
         </div>
 
-        <h1
+     <h1
           style={{
             marginBottom: isMobile ? "16px" : "24px",
             textAlign: "center",
@@ -74,7 +89,7 @@ export default function HomePage() {
             color: "#374151",
           }}
         >
-          年齢・性別・職業だけでなく、少し変わった質問への答えから
+          少し変わった質問への答えから
           AIがあなたの読書傾向を分析。
           今のあなたに合う小説を、おすすめ理由つきで紹介します。
         </p>
@@ -318,5 +333,6 @@ export default function HomePage() {
   当サイトはアフィリエイトプログラムを利用しています。
 </p>
     </main>
-  );
+  </>
+);
 }
