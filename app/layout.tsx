@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://novel-diagnosis.vercel.app/"),
+  metadataBase: new URL("https://novel-compass.vercel.app/"),
   title: {
     default: "物語コンパス",
     template: "%s | 物語コンパス",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "https://novel-diagnosis.vercel.app/",
+    canonical: "https://novel-compass.vercel.app/",
   },
 };
 

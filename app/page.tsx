@@ -28,7 +28,7 @@ export default function HomePage() {
           "@type": "WebSite",
           name: "物語コンパス",
           alternateName: ["Monogatari Compass", "Novel Compass"],
-          url: "https://novel-diagnosis.vercel.app/",
+          url: "https://novel-compass.vercel.app/",
         }),
       }}
     />
