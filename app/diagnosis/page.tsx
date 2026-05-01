@@ -114,6 +114,8 @@ export default function DiagnosisPage() {
     }));
   };
 
+  
+
   const handleSubmit = async () => {
     if (answeredCount < questions.length) {
       alert("すべての質問に答えてください。");
@@ -138,9 +140,10 @@ export default function DiagnosisPage() {
       if (!res.ok) {
         throw new Error(json.error || "診断に失敗しました。");
       }
+     
 
       sessionStorage.setItem("diagnosisResult", JSON.stringify(json));
-      router.push("/result");
+     router.push("/result");
     } catch (err) {
       const message =
         err instanceof Error ? err.message : "不明なエラーが発生しました。";

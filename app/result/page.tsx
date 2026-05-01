@@ -235,13 +235,12 @@ export default function ResultPage() {
 
   const maxScore = Math.max(...Object.values(result.scores), 1);
 
-  const shareText = `私は「${result.diagnosisType}」タイプでした！ あなたも小説診断を試してみてください。`;
+  const shareText = `私は「${result.diagnosisType}」でした！ あなたも物語コンパスで小説診断を試してみてください！`;
 const shareUrl =
-  typeof window !== "undefined" ? window.location.origin + "/diagnosis" : "";
-
+  typeof window !== "undefined" ? window.location.origin + "/" : "";
 const handleNativeShare = async () => {
   try {
-    if (navigator.share) {
+    if (navigator.share) {  
       await navigator.share({
         title: "小説診断の結果",
         text: shareText,
