@@ -1,24 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
 export const metadata: Metadata = {
-  metadataBase: new URL("https://novel-compass.vercel.app/"),
-  title: {
-    default: "物語コンパス",
-    template: "%s | 物語コンパス",
-  },
+  metadataBase: new URL("https://novel-compass.com"),
+  title: "小説診断｜あなたに合う小説をAIが推薦【物語コンパス】",
   description:
-    "AIがあなたの読書傾向を診断して、今のあなたに合う小説をおすすめするサイトです。",
-  applicationName: "物語コンパス",
+    "簡単な質問に答えるだけで、あなたにぴったりの小説をAIが診断。読書タイプからおすすめの本を紹介します。",
   openGraph: {
-    title: "物語コンパス",
+    title: "物語コンパス｜あなたに合う小説をAIが診断",
     description:
-      "AIがあなたの読書傾向を診断して、今のあなたに合う小説をおすすめするサイトです。",
+      "読書タイプを診断して、あなたに合う小説をAIが推薦します。",
+    url: "https://novel-compass.com",
     siteName: "物語コンパス",
     type: "website",
   },
-  alternates: {
-    canonical: "https://novel-compass.vercel.app/",
+  twitter: {
+    card: "summary_large_image",
+    title: "物語コンパス｜あなたに合う小説をAIが診断",
+    description:
+      "読書タイプを診断して、あなたに合う小説をAIが推薦します。",
   },
 };
 
