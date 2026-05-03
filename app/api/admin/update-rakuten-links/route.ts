@@ -70,12 +70,13 @@ async function searchRakutenAffiliateUrl(args: {
     url.searchParams.set("author", novel.author);
   }
 
-  const res = await fetch(url.toString(), {
-    headers: {
-      "User-Agent": "monogatari-compass/1.0",
-    },
-    cache: "no-store",
-  });
+ const res = await fetch(url.toString(), {
+  headers: {
+    "User-Agent": "monogatari-compass/1.0",
+    Referer: process.env.RAKUTEN_REFERER_URL!,
+  },
+  cache: "no-store",
+});
 
   if (res.status === 404) {
     return null;
@@ -111,7 +112,7 @@ export async function POST(req: Request) {
     .select("id, title, author, rakuten_url, rakuten_kobo_url")
     .eq("is_active", true)
     .or("rakuten_url.is.null,rakuten_kobo_url.is.null")
-    .limit(20);
+    .limit(3);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -145,7 +146,7 @@ export async function POST(req: Request) {
           result.books = "not_found";
         }
 
-        await wait(1000);
+        await wait(3000);
       } else {
         result.books = "already_exists";
       }
@@ -164,7 +165,7 @@ export async function POST(req: Request) {
           result.kobo = "not_found";
         }
 
-        await wait(1000);
+        await wait(3000);
       } else {
         result.kobo = "already_exists";
       }
