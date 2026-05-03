@@ -24,6 +24,8 @@ export type Novel = {
   kindle_url?: string | null;
 bookwalker_url?: string | null;
 honto_url?: string | null;
+rakuten_url?: string | null;
+rakuten_kobo_url?: string | null;
 };
 
 export type RecommendedNovel = Novel & {
