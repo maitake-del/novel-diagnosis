@@ -1,20 +1,44 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://novel-compass.com"),
+const siteUrl = "https://novel-compass.com";
+const siteName = "物語コンパス";
+const ogImageUrl = `${siteUrl}/og-image.png`;
 
-  title: "小説診断｜あなたに合う小説をAIが推薦【物語コンパス】",
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "物語コンパス｜今の気分に合う小説をAIが診断",
+    template: "%s｜物語コンパス",
+  },
+
   description:
     "簡単な質問に答えるだけで、今の気分にぴったりの小説をAIが診断。読書タイプからおすすめの本を紹介します。",
 
+  alternates: {
+    canonical: siteUrl,
+  },
+
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      {
+        url: "/favicon.ico",
+        sizes: "48x48",
+        type: "image/x-icon",
+      },
+      {
+        url: "/icon.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
     apple: [
-      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+      {
+        url: "/apple-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
     ],
   },
 
@@ -22,9 +46,18 @@ export const metadata: Metadata = {
     title: "物語コンパス｜今の気分に合う小説をAIが診断",
     description:
       "読書タイプを診断して、今の気分に合う小説をAIが推薦します。",
-    url: "https://novel-compass.com",
-    siteName: "物語コンパス",
+    url: siteUrl,
+    siteName,
     type: "website",
+    locale: "ja_JP",
+    images: [
+      {
+        url: ogImageUrl,
+        width: 1200,
+        height: 630,
+        alt: "物語コンパス｜今の気分に合う小説をAIが診断",
+      },
+    ],
   },
 
   twitter: {
@@ -32,6 +65,7 @@ export const metadata: Metadata = {
     title: "物語コンパス｜今の気分に合う小説をAIが診断",
     description:
       "読書タイプを診断して、今の気分に合う小説をAIが推薦します。",
+    images: [ogImageUrl],
   },
 };
 
