@@ -370,7 +370,7 @@ export async function POST(req: Request) {
     const { data, error } = await supabase
       .from("novels")
       .select(
-        "id, title, author, description, tags, emotion, world, thrill, reflection, healing, tempo, is_active, kindle_url, bookwalker_url, honto_url, rakuten_kobo_url"
+        "id, title, author, description, tags, emotion, world, thrill, reflection, healing, tempo, is_active, kindle_url, bookwalker_url, honto_url, rakuten_url, rakuten_kobo_url"
       )
       .eq("is_active", true);
 
