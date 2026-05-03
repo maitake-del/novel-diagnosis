@@ -346,7 +346,7 @@ export default function DiagnosisPage() {
               width: isMobile ? "100%" : "auto",
             }}
           >
-            {loading ? "診断中...　診断には数分かかります" : "診断結果を見る"}
+            {loading ? "診断中...　診断には1分程かかる場合があります" : "診断結果を見る"}
           </button>
 
           <a

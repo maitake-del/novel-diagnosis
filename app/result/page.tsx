@@ -271,7 +271,7 @@ const xShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
 
 const lineShareUrl = `https://line.me/R/share?text=${encodeURIComponent(
   shareText
-)}`;
+)}&url=${encodeURIComponent(shareUrl)}`;
   return (
     <main
       style={{
