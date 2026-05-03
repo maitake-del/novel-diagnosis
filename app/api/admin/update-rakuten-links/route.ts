@@ -152,7 +152,7 @@ export async function POST(req: Request) {
           result.books = "not_found";
         }
 
-        await wait(5000);
+        await wait(10000);
       } else {
         result.books = "already_exists";
       }
@@ -171,7 +171,7 @@ export async function POST(req: Request) {
           result.kobo = "not_found";
         }
 
-        await wait(5000);
+        await wait(10000);
       } else {
         result.kobo = "already_exists";
       }
