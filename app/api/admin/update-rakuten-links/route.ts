@@ -118,7 +118,7 @@ export async function POST(req: Request) {
     .select("id, title, author, rakuten_url, rakuten_kobo_url")
     .eq("is_active", true)
     .or("rakuten_url.is.null,rakuten_kobo_url.is.null")
-    .limit(5);
+    .limit(50);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
