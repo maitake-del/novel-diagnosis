@@ -20,6 +20,9 @@ const supabaseAdmin = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
+const RAKUTEN_REFERER_URL =
+  process.env.RAKUTEN_REFERER_URL || "https://novel-compass.com";
+
 function normalizeText(value: string) {
   return value
     .replace(/\s+/g, "")
@@ -70,13 +73,16 @@ async function searchRakutenAffiliateUrl(args: {
     url.searchParams.set("author", novel.author);
   }
 
- const res = await fetch(url.toString(), {
-  headers: {
-    "User-Agent": "monogatari-compass/1.0",
-    Referer: process.env.RAKUTEN_REFERER_URL!,
-  },
-  cache: "no-store",
-});
+  const res = await fetch(url.toString(), {
+    method: "GET",
+    headers: {
+      "User-Agent": "monogatari-compass/1.0",
+      "Referer": RAKUTEN_REFERER_URL,
+      "Origin": RAKUTEN_REFERER_URL,
+    },
+    referrer: RAKUTEN_REFERER_URL,
+    cache: "no-store",
+  });
 
   if (res.status === 404) {
     return null;
@@ -112,7 +118,7 @@ export async function POST(req: Request) {
     .select("id, title, author, rakuten_url, rakuten_kobo_url")
     .eq("is_active", true)
     .or("rakuten_url.is.null,rakuten_kobo_url.is.null")
-    .limit(3);
+    .limit(1);
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -146,7 +152,7 @@ export async function POST(req: Request) {
           result.books = "not_found";
         }
 
-        await wait(3000);
+        await wait(5000);
       } else {
         result.books = "already_exists";
       }
@@ -165,7 +171,7 @@ export async function POST(req: Request) {
           result.kobo = "not_found";
         }
 
-        await wait(3000);
+        await wait(5000);
       } else {
         result.kobo = "already_exists";
       }
