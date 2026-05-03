@@ -108,6 +108,7 @@ type RecommendedBook = {
 bookwalker_url?: string | null;
 honto_url?: string | null;
 rakuten_kobo_url?: string | null;
+rakuten_url?: string | null;
 };
 
 type DiagnosisResult = {
@@ -134,6 +135,7 @@ type BonusResult = {
 bookwalker_url?: string | null;
 honto_url?: string | null;
 rakuten_kobo_url?: string | null;
+rakuten_url?: string | null;
   } | null;
 };
 
@@ -544,6 +546,25 @@ const lineShareUrl = `https://line.me/R/share?text=${encodeURIComponent(
       }}
     >
       Kindleで読む
+    </a>
+  )}
+
+   {book.rakuten_url && (
+    <a
+      href={book.rakuten_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        borderRadius: "12px",
+        backgroundColor: "#111827",
+        color: "#ffffff",
+        padding: isMobile ? "4px 5px" : "10px 14px",
+        textDecoration: "none",
+        fontSize: isMobile ? "8px" : "14px",
+        fontWeight: 700,
+      }}
+    >
+      楽天で読む
     </a>
   )}
 
