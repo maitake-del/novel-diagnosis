@@ -819,6 +819,24 @@ const lineShareUrl = `https://line.me/R/share?text=${encodeURIComponent(
       Kindleで読む
     </a>
   )}
+  {bonusResult.bonusRecommendation.rakuten_url && (
+    <a
+      href={bonusResult.bonusRecommendation.rakuten_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        borderRadius: "12px",
+        backgroundColor: "#111827",
+        color: "#ffffff",
+        padding: isMobile ? "10px 12px" : "10px 14px",
+        textDecoration: "none",
+        fontSize: isMobile ? "13px" : "14px",
+        fontWeight: 700,
+      }}
+    >
+      楽天で読む
+    </a>
+  )}
 
   {bonusResult.bonusRecommendation.bookwalker_url && (
     <a
