@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const siteUrl = "https://novel-compass.com";
 const siteName = "物語コンパス";
@@ -77,6 +78,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>{children}</body>
+      <GoogleAnalytics gaId="G-92SXCP1DEY" />
     </html>
   );
 }
