@@ -1,4 +1,7 @@
-export default function sitemap() {
+
+import type { MetadataRoute } from "next";
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: "https://novel-compass.com",

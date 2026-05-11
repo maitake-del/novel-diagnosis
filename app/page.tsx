@@ -1,5 +1,6 @@
 "use client";
 
+
 import { useEffect, useState } from "react";
 import Script from "next/script";
 
@@ -28,7 +29,7 @@ export default function HomePage() {
           "@type": "WebSite",
           name: "物語コンパス",
           alternateName: ["Monogatari Compass", "Novel Compass"],
-          url: "https://novel-compass.vercel.app/",
+          url: "https://novel-compass.com/",
         }),
       }}
     />
@@ -74,7 +75,7 @@ export default function HomePage() {
             fontWeight: 800,
           }}
         >
-          あなたにぴったりの
+          今の気分にぴったりの
           <br />
           小説を見つけるサイト
         </h1>
