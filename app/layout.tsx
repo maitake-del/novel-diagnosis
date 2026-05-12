@@ -78,6 +78,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>{children}</body>
+
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7181684444879096"
+     crossOrigin="anonymous"></script>
+
       <GoogleAnalytics gaId="G-92SXCP1DEY" />
     </html>
   );
