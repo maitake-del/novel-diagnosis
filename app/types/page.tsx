@@ -16,6 +16,7 @@ export default function TypesPage() {
         margin: "0 auto",
         padding: "32px 16px 56px",
         color: "#3f2f24",
+        backgroundColor: "#f5f5f4",
       }}
     >
       <section
