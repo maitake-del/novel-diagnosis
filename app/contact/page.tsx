@@ -7,7 +7,16 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16">
+    <main 
+    style={{
+        minHeight: "100vh",
+        background: "linear-gradient(to bottom, #fef3c7, #ffedd5)",
+        color: "#111827",
+        padding: "40px 20px",
+      }}
+    
+    
+    className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="mb-6 text-3xl font-bold">お問い合わせ</h1>
 
       <p className="mb-4 leading-7">
