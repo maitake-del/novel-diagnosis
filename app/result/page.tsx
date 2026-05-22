@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
+import { getReadingTypeIdFromName } from "@/lib/readingTypes";
 function ShareIcon() {
   return (
     <svg
@@ -236,7 +236,8 @@ export default function ResultPage() {
     .slice(0, 3);
 
   const maxScore = Math.max(...Object.values(result.scores), 1);
-
+const resultTypeId =
+  getReadingTypeIdFromName(result.diagnosisType) ?? "story-explorer";
   const shareText = `私は「${result.diagnosisType}」でした！ あなたも物語コンパスで小説診断を試してみてください！`;
 const shareUrl =
   typeof window !== "undefined" ? window.location.origin + "/" : "";
@@ -325,6 +326,25 @@ const lineShareUrl = `https://line.me/R/msg/text/?${encodeURIComponent(
             {result.aiDiagnosisSummary ?? result.description}
           </p>
         </div>
+
+<div style={{ marginTop: isMobile ? "12px" : "18px" }}>
+  <a
+    href={`/types/${resultTypeId}`}
+    style={{
+      display: "inline-block",
+      borderRadius: "9999px",
+      backgroundColor: "#ffffff",
+      color: "#c2410c",
+      border: "1px solid #fdba74",
+      padding: isMobile ? "10px 14px" : "12px 18px",
+      textDecoration: "none",
+      fontSize: isMobile ? "13px" : "15px",
+      fontWeight: 800,
+    }}
+  >
+    この読書型の詳しい解説を見る
+  </a>
+</div>
 
         <section
   style={{
@@ -626,6 +646,9 @@ const lineShareUrl = `https://line.me/R/msg/text/?${encodeURIComponent(
     </a>
   )}
 </div>
+
+
+
 
               </article>
             ))}

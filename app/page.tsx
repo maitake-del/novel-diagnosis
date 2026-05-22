@@ -323,6 +323,19 @@ export default function HomePage() {
         </section>
       </section>
 
+<p style={{ marginTop: "16px", textAlign: "center" }}>
+  <a
+    href="/types"
+    style={{
+      color: "#f97316",
+      textDecoration: "underline",
+      fontWeight: 700,
+    }}
+  >
+    全読書型の解説を見る
+  </a>
+</p>
+
       <p
   style={{
     marginTop: "24px",
